@@ -1,0 +1,45 @@
+#! /usr/bin/bash 
+
+# Add your GHCR username
+export DOCKER_USERNAME="tarun-shell-it"
+
+# Add your GHCR token
+export DOCKER_TOKEN="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"
+
+# Add account IDs for each account creted on Metamask earlier in training
+# Do NOT include "0x" prefix
+export ACCT_ONE="054bd939dCD7081D66Bd9645D554ACb913C49864"
+export ACCT_TWO="216eCa21048F8a42Ecb0d0Ff13C2Cece26A56407"
+
+# Replace if K8s cluster name is different than besu-training
+export K8S_CONTEXT="7-Sept-bevel-aks"
+
+# Replace with your Vault address
+export VAULT_ADDR="http://20.71.87.117:8200"
+
+# Add your root token for Vault
+export VAULT_TOKEN="hvs.pALQ8jomjGrkB9kXL1HT0Qyp"
+
+# Replace if your vault path is different than secretsv2
+export VAULT_PATH="secretsv2"
+
+# Replace "user-name" with your GitHub username
+export GIT_URL="ssh://git@github.com/tarun-shell-it/bevel.git"
+
+# Update if using a different git branch than the training
+export GIT_BRANCH="feature/Add-smart-contracts-directory"
+
+# Replace "user-name" with your GitHub username
+export GIT_REPO="github.com/tarun-shell-it/bevel.git"
+
+# Update with GitHub username
+export GIT_USERNAME="tarun-shell-it"
+
+# Optional; update with Git token
+export GIT_TOKEN=""
+
+# Update with GitHub email associated with GitHub account
+export GIT_EMAIL="Tarun.Jethwani@shell.com"
+
+# Update if you names the GitHub ssh key differently
+export GIT_KEY="/home/bevel/build/id_rsa_gitops"
