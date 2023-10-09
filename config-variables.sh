@@ -39,7 +39,7 @@ export GIT_USERNAME="tarun-shell-it"
 export GIT_TOKEN=""
 
 # Update with GitHub email associated with GitHub account
-export GIT_EMAIL="Tarun.Jethwani@shell.com"
+export GIT_EMAIL="142882240+tarun-shell-it@users.noreply.github.com"
 
 # Update if you names the GitHub ssh key differently
 export GIT_KEY="/home/bevel/build/id_rsa_gitops"
