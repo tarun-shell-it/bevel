@@ -42,4 +42,4 @@ export GIT_TOKEN=""
 export GIT_EMAIL="Tarun.Jethwani@shell.com"
 
 # Update if you names the GitHub ssh key differently
-export GIT_KEY="/home/bevel/build/id_rsa_gitops"
+export GIT_KEY="/home/bevel-user/bevel/build/id_rsa_gitops"
