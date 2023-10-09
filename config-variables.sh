@@ -12,7 +12,7 @@ export ACCT_ONE="054bd939dCD7081D66Bd9645D554ACb913C49864"
 export ACCT_TWO="216eCa21048F8a42Ecb0d0Ff13C2Cece26A56407"
 
 # Replace if K8s cluster name is different than besu-training
-export K8S_CONTEXT="7-Sept-bevel-aks"
+export K8S_CONTEXT="sep-aks-bevel"
 
 # Replace with your Vault address
 export VAULT_ADDR="http://20.126.171.25:8200"
