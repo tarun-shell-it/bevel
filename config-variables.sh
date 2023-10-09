@@ -15,10 +15,10 @@ export ACCT_TWO="216eCa21048F8a42Ecb0d0Ff13C2Cece26A56407"
 export K8S_CONTEXT="7-Sept-bevel-aks"
 
 # Replace with your Vault address
-export VAULT_ADDR="http://20.71.87.117:8200"
+export VAULT_ADDR="http://20.126.171.25:8200"
 
 # Add your root token for Vault
-export VAULT_TOKEN="hvs.pALQ8jomjGrkB9kXL1HT0Qyp"
+export VAULT_TOKEN="hvs.6XY5LOzVdI8DX7jTOq2gO5Wl"
 
 # Replace if your vault path is different than secretsv2
 export VAULT_PATH="secretsv2"
@@ -27,7 +27,7 @@ export VAULT_PATH="secretsv2"
 export GIT_URL="ssh://git@github.com/tarun-shell-it/bevel.git"
 
 # Update if using a different git branch than the training
-export GIT_BRANCH="feature/Add-smart-contracts-directory"
+export GIT_BRANCH="feature/from-develop"
 
 # Replace "user-name" with your GitHub username
 export GIT_REPO="github.com/tarun-shell-it/bevel.git"
