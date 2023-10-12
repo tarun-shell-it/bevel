@@ -1,0 +1,53 @@
+# Manufacturer RPC URL
+MANUFACTURER_RPC="http://10.6.0.61:8545"
+# Manufacturer node address from Vault
+MANUFACTURER_ADDR='0xc009754067b885dc0ab6636498a294f84f097087'
+# Manufacturer private key from Vault
+MANUFACTURER_KEY='0x8fe898f4d76fc1a805209bafafc08ba2cea27256da9eddd9b11d23d64ef93440'
+
+# Carrier RPC URL
+CARRIER_RPC='http://10.6.0.52:8545'
+# Carrier node address from Vault
+CARRIER_ADDR='0x56dcfa8dbfc7411898be1f0a032a56ffef3c12c3'
+# Carrier private key from Vault
+CARRIER_KEY='0x6e7bd574a7d51e1a3b174f481961829369dd5a2a13b9b6ec7c13943ac76c0fb4'
+
+# Store RPC URL
+STORE_RPC='http://10.6.0.31:8545'
+# Store node address from Vault
+STORE_ADDR='0x9c36c217ffbe35575b5113aa6ed04914a938b7f0'
+# Store private key from Vault
+STORE_KEY='0xdf2829235d3fe9441f3007de5fe6092395a0bae77a558177c78a784517a36c47'
+
+#ABI file path (created during the deploy step)
+ABI_PATH='/home/azureuser/bevel-samples/examples/supplychain-app/besu/smartContracts/build/abi.json'
+
+# Contract address returned from smart contract deployment
+CONTRACT_ADDR='0x369cAA7073ADD250FccCEe9259fAD1099a5F3132'
+
+# Define network participants with node subject
+# Node subject was defined in network.yaml
+# Do not update unless the organization.services.peers.peer.subject value has been changed in the network.yaml file
+CARRIER='O=Carrier,OU=Carrier,L=51.50/-0.13/London,C=GB'
+STORE='O=Store,OU=Store,L=40.73/-74/New York,C=US'
+MANUFACTURER='O=Manufacturer,OU=Manufacturer,L=47.38/8.54/Zurich,C=CH'
+
+# Almond Chocolate Bar Product Tracking ID
+# Do not update
+# Additional IDs may be added if you wish to create multiple Almond Bars
+ALMOND_TRACKING_ID='0d15i7b8-caaa-508d-8b83-aae049b40x00'
+
+# Nut Free Chocolate Bar Product Tracking ID
+# Do not update
+# Additional IDs may be added if you wish to create multiple Nut Free Bars
+NF_TRACKING_ID='0d15d7b8-caaa-508d-8b83-aae049b40u51'
+
+# Nut exposure Chocolate Bar Container Tracking ID
+# Do not update
+# Additional IDs may be added if you wish to create multiple Almond Containers
+ALMOND_CONTAINER_ID='0d15dcb8-caaa-468d-8b83-bbe049b40z40'
+
+# Nut & Dairy Free Chocolate Bar Container Tracking ID
+# Do not update
+# Additional IDs may be added if you wish to create multiple Nut Free Containers
+NF_CONTAINER_ID='0d15d7b8-caaa-468d-8b83-bbe049b40z41'
