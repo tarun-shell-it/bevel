@@ -1,29 +1,29 @@
 # Manufacturer RPC URL
-MANUFACTURER_RPC="http://10.6.0.61:8545"
+MANUFACTURER_RPC="http://10.6.0.36:8545"
 # Manufacturer node address from Vault
-MANUFACTURER_ADDR='0xc009754067b885dc0ab6636498a294f84f097087'
+MANUFACTURER_ADDR='0x71cc51492e1cd376e93a527572eda59683d311c0'
 # Manufacturer private key from Vault
-MANUFACTURER_KEY='0x8fe898f4d76fc1a805209bafafc08ba2cea27256da9eddd9b11d23d64ef93440'
+MANUFACTURER_KEY='0xcfd16cf0cfe590251ccbaf43d27a4f5af7656d5cc6fce86a6261df92348431c1'
 
 # Carrier RPC URL
-CARRIER_RPC='http://10.6.0.52:8545'
+CARRIER_RPC='http://10.6.0.76:8545'
 # Carrier node address from Vault
-CARRIER_ADDR='0x56dcfa8dbfc7411898be1f0a032a56ffef3c12c3'
+CARRIER_ADDR='0xcbd98d351a7aa3276582be0c168150bf4c6595e1'
 # Carrier private key from Vault
-CARRIER_KEY='0x6e7bd574a7d51e1a3b174f481961829369dd5a2a13b9b6ec7c13943ac76c0fb4'
+CARRIER_KEY='0x4f7177c28290b0d8aee8783e1393a3b1a07e804eb938599f2a7ce46ff43c09b2'
 
 # Store RPC URL
-STORE_RPC='http://10.6.0.31:8545'
+STORE_RPC='http://10.6.0.74:8545'
 # Store node address from Vault
-STORE_ADDR='0x9c36c217ffbe35575b5113aa6ed04914a938b7f0'
+STORE_ADDR='0xdf5e9e9b71fc15b36eb42458835fe28a63b734aa'
 # Store private key from Vault
-STORE_KEY='0xdf2829235d3fe9441f3007de5fe6092395a0bae77a558177c78a784517a36c47'
+STORE_KEY='0xe5689312e2d1d8bb7b444e9f24fd17c06b85f7bf41048c67448063d5e16c296c'
 
 #ABI file path (created during the deploy step)
-ABI_PATH='/home/azureuser/bevel-samples/examples/supplychain-app/besu/smartContracts/build/abi.json'
+ABI_PATH='/home/bevel-user/bevel-samples/examples/supplychain-app/besu/smartContracts/build/abi.json'
 
 # Contract address returned from smart contract deployment
-CONTRACT_ADDR='0x369cAA7073ADD250FccCEe9259fAD1099a5F3132'
+CONTRACT_ADDR='0x9f2C3F2F4B07267c6e8BF83C56f0F56276144eca'
 
 # Define network participants with node subject
 # Node subject was defined in network.yaml
