@@ -23,7 +23,7 @@ STORE_KEY='0xe5689312e2d1d8bb7b444e9f24fd17c06b85f7bf41048c67448063d5e16c296c'
 ABI_PATH='/home/bevel-user/bevel-samples/examples/supplychain-app/besu/smartContracts/build/abi.json'
 
 # Contract address returned from smart contract deployment
-CONTRACT_ADDR='0x9f2C3F2F4B07267c6e8BF83C56f0F56276144eca'
+CONTRACT_ADDR='0xA5490FFD513292fD0b8c8A8F5569575b79e098A2'
 
 # Define network participants with node subject
 # Node subject was defined in network.yaml
