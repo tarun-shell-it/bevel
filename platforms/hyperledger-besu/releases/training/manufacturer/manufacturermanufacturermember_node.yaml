@@ -1,0 +1,96 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: manufacturermanufacturermember-node
+  namespace: manufacturer-bes
+  annotations:
+    flux.weave.works/automated: "false"
+spec:
+  releaseName: manufacturermanufacturermember-node
+  interval: 1m
+  chart:
+   spec:
+    chart: platforms/hyperledger-besu/charts/node_besu
+    sourceRef:
+      kind: GitRepository
+      name: flux-training
+      namespace: flux-training
+  values:
+    metadata:
+      namespace: manufacturer-bes
+      labels:
+    replicaCount: 1
+    staticnodes:
+      - "enode://f6323194007c5518ef9c404a4c3363d6b1acabcba6e57adae5fc3febef82201f78b04eb30084de8e5c9e2d646e759f291ca8885a11e8631929e44e67677bb03f@validator1.supplychain-bes.svc.cluster.local:30303"
+      - "enode://7f8e20615e00644c310b3ccf4fab7ca0aad7bfefa3c8bdd6c01eec77a453b81f198c17e733e8465d6dcad482aba33f12cf73fe68d22f3f542bdd4282bef8c891@validator2.supplychain-bes.svc.cluster.local:30303"
+      - "enode://0a3b9cebcdb5dfb2fa6d7c13c7d4856611885aeb285cd172a078338ee097945886ca176d2af574979d348d78f4efd62f600c2abcd63a03ef79f27203da45ce86@validator3.supplychain-bes.svc.cluster.local:30303"
+      - "enode://dd35e27a4d41147335289c90b0263fa6cc0afda6680fad79240b72148432ff8fc3773ccd82130d2c2627becd5804fcfa6bcbf0c890fac04e1a18e42eedaeac18@validator4.supplychain-bes.svc.cluster.local:30303"
+      - "enode://ae00ba6ebf3a995f72180d0562efd8715a9b241c9e493f43a8872d7d24ad9f6c19aac8dbbd521249bd576582fc2b85c2eb63ba2155e89359b2a12f3aa774d6d9@carrier.carrier-bes.svc.cluster.local:30303"
+      - "enode://8e9013daa7923574fa0d28f0ac2872c091bc5dfdf4b9aee2849955b888ca9ff7425e6ccb5f44038c7971a031e4d62efa7dcd670cf97d91230af5774a126af3fd@manufacturer.manufacturer-bes.svc.cluster.local:30303"
+      - "enode://7fca8ab5f465de7af645d6bbe9091e73a81940296ea5287a4bb6a106bab54010dcacd715a66e615ef890a6729ce9f8864c805b20d602e41a55aa0ab953615aec@store.store-bes.svc.cluster.local:30303"
+      - "enode://a93f756388fd6eeb189a391780515d232744ccd31bcda1a706280c5e65c14cab83657847252035a0d1c9adec48bd99fc1b3f556c4ce53c6e538fcab7e7528e0b@warehouse.warehouse-bes.svc.cluster.local:30303"
+
+    liveliness_check:
+      enabled: false
+    healthcheck:
+      readinessthreshold: 100
+      readinesscheckinterval: 5
+    proxy:
+      provider: none
+      external_url: manufacturer.manufacturer-bes
+      p2p: 30303
+      rpc: 8545
+
+    images:
+      node: hyperledger/besu:22.10.2
+      alpineutils: ghcr.io/hyperledger/bevel-alpine:latest
+      pullPolicy: IfNotPresent
+
+    node:
+      name: manufacturer
+      consensus: ibft
+      subject: O=Manufacturer,OU=Manufacturer,L=47.38/8.54/Zurich,C=CH
+      mountPath: /opt/besu/data
+      servicetype: ClusterIP
+      imagePullSecret: regcred
+      ports:
+        p2p: 30303
+        rpc: 8545
+        ws: 8546
+
+      permissioning:
+        enabled: False
+
+    tm:
+      type: tessera
+      tls: True
+      url: "https://manufacturer-tessera.manufacturer-bes:8888"
+
+    privacy:
+      enabled: true
+      public_key_file: /secrets/tm_key.pub
+      tm_flag: true
+
+    storage:
+      storageclassname: manufacturer-azure-storageclass
+      storagesize: 1Gi
+
+    vault:
+      address: http://20.93.235.67:8200
+      secretengine: secretsv2
+      secretprefix: data/manufacturer-bes/crypto/manufacturer
+      serviceaccountname: vault-auth
+      keyname: data
+      tmdir: tm
+      tlsdir: tls
+      role: vault-role
+      type: hashicorp
+      authpath: besumanufacturer
+
+    genesis: ewogICJjb25maWciOiB7CiAgICAiY2hhaW5JZCI6IDIwMTgsCiAgICAiY29uc3RhbnRpbm9wbGVmaXhibG9jayI6IDAsCiAgICAiY29udHJhY3RTaXplTGltaXQiOiAyMTQ3NDgzNjQ3LAogICAgImliZnQyIjogewogICAgICAiYmxvY2twZXJpb2RzZWNvbmRzIjogMiwKICAgICAgImVwb2NobGVuZ3RoIjogMzAwMDAsCiAgICAgICJyZXF1ZXN0dGltZW91dHNlY29uZHMiOiAxMAogICAgfQogIH0sCiAgIm5vbmNlIjogIjB4MCIsCiAgInRpbWVzdGFtcCI6ICIweDU4ZWU0MGJhIiwKICAiZ2FzTGltaXQiOiAiMHgxZmZmZmZmZmZmZmZmZiIsCiAgImRpZmZpY3VsdHkiOiAiMHgxIiwKICAiYWxsb2MiOiB7CiAgICAiMDU0YmQ5MzlkQ0Q3MDgxRDY2QmQ5NjQ1RDU1NEFDYjkxM0M0OTg2NCI6IHsKICAgICAgImJhbGFuY2UiOiAiOTAwMDAwMDAwMDAwMDAwMDAwMDAwMDAiCiAgICB9LAogICAgIjIxNmVDYTIxMDQ4RjhhNDJFY2IwZDBGZjEzQzJDZWNlMjZBNTY0MDciOiB7CiAgICAgICJiYWxhbmNlIjogIjkwMDAwMDAwMDAwMDAwMDAwMDAwMDAwIgogICAgfQogIH0sCiAgImV4dHJhRGF0YSI6ICIweGY4N2VhMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDBmODU0OTRlMWZkNzQ5MTA4ZjM4OGRhYmFjM2ZmNjdiZWY3ZmNjYjhmZDY1ZmVjOTRjNjU5NDgyYTlkMWJlMWI0NzE0ODJjNGM3ZjE1OWFiZTU4YjJlMGMzOTQwMjc0MzE2ZjQ0Nzc5NjJhNmRiYmY3ZTJmYTY2MmIzOTlmNzRhOWNjOTQwZDY0Y2RmZjY4MWJhYzEzNTZlNzdlOWVjODA0OTdkNDRjNjdkNzdkODA4NDAwMDAwMDAwYzAiCn0=
+
+ 
+
+    metrics:
+      enabled: False
+      port: 9545
