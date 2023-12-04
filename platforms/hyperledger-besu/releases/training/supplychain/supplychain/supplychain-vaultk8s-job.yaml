@@ -25,7 +25,7 @@ spec:
 
     vault:
       role: vault-role
-      address: http://20.93.235.67:8200
+      address: http://20.23.141.210:8200
       authpath: besusupplychain
       policy: vault-crypto-supplychain-bes-supplychain-ro
       policydata: "{\n  \"policy\": \"path \\\"secretsv2/data/supplychain-bes/crypto/*\\\" {\n    capabilities = [\\\"read\\\", \\\"list\\\", \\\"create\\\", \\\"update\\\"]\n  }\n  path \\\"secretsv2/data/supplychain-bes/smartContracts/*\\\" {\n    capabilities = [\\\"read\\\", \\\"list\\\"]\n  }\"\n}"
@@ -33,7 +33,7 @@ spec:
       imagesecretname: regcred
 
     k8s:
-      kubernetes_url: https://bevel-aks-test-remove-afte-6dce89-fth6zo8x.hcp.westeurope.azmk8s.io:443
+      kubernetes_url: https://bevel-aks--test-remove-afte-6dce89-m6389xds.hcp.westeurope.azmk8s.io:443
     
     rbac:
       create: True
